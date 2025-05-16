@@ -14,6 +14,6 @@
 <script setup>
 import {ref} from 'vue';
 
-const equipe = ref(['Igor', 'Vinicius','Caio','Leonardo','Rodolpho']);
+const equipe = ref(['Igor', 'Gabriel', 'Marcio','Mateus','Vinicius','Caio','Leonardo','Rodolpho']);
 
 </script>
