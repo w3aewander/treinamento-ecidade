@@ -135,5 +135,3 @@ npm install && npm run dev
 
    #Agora a página está disponível  em http://localhost:8000
 ```
-
-```
