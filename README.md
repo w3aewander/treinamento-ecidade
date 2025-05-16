@@ -134,4 +134,5 @@ npm install && npm run dev
    php artisan serve
 
    #Agora a página está disponível  em http://localhost:8000
+   
 ```
