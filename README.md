@@ -1,64 +1,139 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Treinamento do E-Cidade
+## Laravel aplicado ao E-Cidade
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+>
+> Wanderlei Silva do Carmo <wander.silva@gmail.com>
+> Engenheiro Arquiteto de Software
+> Especialista em Informatica Educacional
+> DevOps e FullStack
+>
 
-## About Laravel
+### Configuração do ambiente Laravel no Ubuntu Linux
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### Instalar as dependências básicas para o projeto.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. PHP (Versões 7.4 ou superior)
+2. SGBD PostgreSQL, MySQL ou SQLite (De acordo com o e-cidade)
+3. Pacotes apt:
+>
+> curl, wget, php-curl, php-mbstring, php-dom, php-pgsql, php-gd, php-bzip2, etc...
+>
+```bash
+   apt install curl > curl wget php-curl php-mbstring php-dom php-pgsql php-gd php-bzip2
+```
+4. Baixar os nvm para Linux:
+>
+> https://github.com/nvm-sh/nvm
+>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
 
-## Learning Laravel
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# ou
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
-## Laravel Sponsors
+source ~/.bashrc
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+5. Instalar o composer
 
-### Premium Partners
+```bash
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
 
-## Contributing
+    #
+    # para facilitar os comandos mova o composer.phar criado para um diretório do path do sistema com o nome "composer" simplesmente.
+    # assim não precisa digitar 'php composer.phar <comando>'
+    #
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    mv composer.phar  /usr/local/bin/composer
 
-## Code of Conduct
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Executar o composer para instalar o Laravel e o Laravel/ui
 
-## Security Vulnerabilities
+```bash
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ composer create-project --prefer-dist laravel/laravel treinamento-ecidade '8.x'  ( versão compatível com o php-7.4 )
 
-## License
+ # Mudar o diretório para o diretório do projeto
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ cd treinamento-ecidade
+
+ # Execute o composer para instalar o Laravel/ui
+
+ composer require "laravel/ui"
+
+ # Crie o banco de dados
+
+ # Edite o .env e configure o acesso ao servidor pgsql, mysql ou sqlite
+
+ # Execute a migration para gerar as tabelas necessárias do Laravel
+
+ php artisan migrate
+
+ ```
+
+7. Adicionar integração com o Vue
+
+ ```bash
+
+    php artisan ui vue --auth
+
+
+ ```
+
+8. Adicione suporte para o Português Brasil
+>
+> [lucascudo](https://github.com/lucascudo/laravel-pt-BR-localization)
+>
+
+```bash
+
+composer require lucascudo/laravel-pt-br-localization --dev
+php artisan vendor:publish --tag=laravel-pt-br-localization
+
+
+// Altere Linha 85 do arquivo config/app.php para:
+'locale' => 'pt_BR'
+
+// Para versões >= 11.x altere a linha 8 do arquivo .env
+APP_LOCALE=pt_BR
+
+```
+
+
+6. Instalar o node a partir do nvm
+```bash
+nvm install node
+
+# ou uma versão específica
+
+npm install 21.3
+
+```
+
+7. Agora executar os comandos a seguir
+
+```bash
+
+composer install
+npm install && npm run dev
+
+#Excutar novamente o mix
+npm install && npm run dev
+
+# Executar o servidor de desenvolvimento do Laravel - em um novo terminal
+
+```bash
+   php artisan serve
+
+   #Agora a página está disponível  em http://localhost:8000
+```
+
+```
