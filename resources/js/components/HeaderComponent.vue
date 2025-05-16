@@ -5,17 +5,10 @@
   </div>
 </template>
 
-<style lang="sass" scoped>
+<script setup>
 
-</style>
+import {ref} from 'vue'
 
+const teste  = ref("Treinando o Time");
 
-<script>
-   export default {
-       data(){
-        return {
-            teste: "Equipe de desenvolvimento do E-Cidade"
-        }
-       }
-   }
 </script>

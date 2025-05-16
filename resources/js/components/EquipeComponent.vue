@@ -2,7 +2,7 @@
 
     <ul class="list-group">
 
-        <li class="list-group-item"  v-for="(e,index) in equipe">
+        <li class="list-group-item"  v-for="(e,index) in equipe" :key="index">
                    {{ e }}
         </li>
 
@@ -11,15 +11,9 @@
 </template>
 
 
-<script>
+<script setup>
+import {ref} from 'vue';
 
-export default{
-
-    data(){
-        return {
-            equipe: ['Igor', 'Vinicius','Caio','Leonardo','Rodolpho']
-        }
-    }
-}
+const equipe = ref(['Igor', 'Vinicius','Caio','Leonardo','Rodolpho']);
 
 </script>
