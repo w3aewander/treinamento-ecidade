@@ -19,7 +19,7 @@
 > curl, wget, php-curl, php-mbstring, php-dom, php-pgsql, php-gd, php-bzip2, etc...
 >
 ```bash
-   apt install curl > curl wget php-curl php-mbstring php-dom php-pgsql php-gd php-bzip2
+   apt install curl curl wget php-curl php-mbstring php-dom php-pgsql php-gd php-bzip2
 ```
 4. Baixar os nvm para Linux:
 >
@@ -109,6 +109,7 @@ APP_LOCALE=pt_BR
 
 
 6. Instalar o node a partir do nvm
+
 ```bash
 nvm install node
 
@@ -134,5 +135,5 @@ npm install && npm run dev
    php artisan serve
 
    #Agora a página está disponível  em http://localhost:8000
-   
+
 ```
