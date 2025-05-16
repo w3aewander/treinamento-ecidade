@@ -130,7 +130,7 @@ npm install && npm run dev
 
 # Executar o servidor de desenvolvimento do Laravel - em um novo terminal
 
-```bash
+
    php artisan serve
 
    #Agora a página está disponível  em http://localhost:8000
