@@ -25082,7 +25082,7 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var __expose = _ref.expose;
     __expose();
-    var equipe = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(['Igor', 'Vinicius', 'Caio', 'Leonardo', 'Rodolpho']);
+    var equipe = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(['Igor', 'Gabriel', 'Marcio', 'Mateus', 'Vinicius', 'Caio', 'Leonardo', 'Rodolpho']);
     var __returned__ = {
       equipe: equipe,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref
@@ -47360,8 +47360,9 @@ __webpack_require__.r(__webpack_exports__);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js")["default"]);
+// require('./bootstrap');
+
+// window.Vue = require('vue').default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -47395,6 +47396,8 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bu
 //     }
 // });
 
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js")["default"]);
 
 
 

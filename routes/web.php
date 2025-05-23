@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+//Rotas para o treinamento
+Route::get('/treinamentos', [App\Http\Controllers\TreinamentoController::class, 'index'])
+         ->name('treinamentos.index');
+
 
 Auth::routes();
 
