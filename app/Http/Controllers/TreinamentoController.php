@@ -26,7 +26,8 @@ class TreinamentoController extends Controller
      */
     public function create()
     {
-        //
+        //chamar a view de criar treinamento
+        return view('treinamento.create');
     }
 
     /**
@@ -37,7 +38,25 @@ class TreinamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //dd($request->all()); //debug para ver os dados do treinamento
+
+        //validar os dados do treinamento
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required|string|max:1000',
+            'data_inicio' => 'required|date',
+            'data_fim' => 'required|date|after_or_equal:data_inicio',
+            'local' => 'required|string|max:255',
+            'instrutor' => 'required|string|max:255',
+            'carga_horaria' => 'required|integer|min:1',
+        ]);
+
+        //criar o treinamento
+        \App\Models\Treinamento::create($request->all());
+
+        //redirecionar para a lista de treinamentos
+        return redirect()->route('treinamentos.index')->with('success', 'Treinamento criado com sucesso!');
     }
 
     /**
@@ -48,7 +67,12 @@ class TreinamentoController extends Controller
      */
     public function show($id)
     {
-        //
+        //dd($id); //debug para ver o id do treinamento
+        //pegar o treinamento pelo id
+        $treinamento = \App\Models\Treinamento::findOrFail($id);
+
+        //chamar a view de mostrar o treinamento
+        return view('treinamento.show', compact('treinamento'));
     }
 
     /**
@@ -59,7 +83,12 @@ class TreinamentoController extends Controller
      */
     public function edit($id)
     {
-        //
+        //dd($id); //debug para ver o id do treinamento
+        //pegar o treinamento pelo id
+        $treinamento = \App\Models\Treinamento::findOrFail($id);
+        //chamar a view de editar o treinamento
+        return view('treinamento.edit', compact('treinamento'));
+
     }
 
     /**
@@ -71,7 +100,24 @@ class TreinamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request->all()); //debug para ver os dados do treinamento
+        //validar os dados do treinamento
+
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required|string|max:1000',
+            'data_inicio' => 'required|date',
+            'data_fim' => 'required|date|after_or_equal:data_inicio',
+            'local' => 'required|string|max:255',
+            'instrutor' => 'required|string|max:255',
+            'carga_horaria' => 'required|integer|min:1',
+        ]);
+        //pegar o treinamento pelo id
+        $treinamento = \App\Models\Treinamento::findOrFail($id);
+        //atualizar o treinamento
+        $treinamento->update($request->all());
+        //redirecionar para a lista de treinamentos
+        return redirect()->route('treinamentos.index')->with('success', 'Treinamento atualizado com sucesso!');
     }
 
     /**
@@ -82,6 +128,6 @@ class TreinamentoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //softDelete
     }
 }

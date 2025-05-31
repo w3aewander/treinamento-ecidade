@@ -21,6 +21,7 @@
                                 <th>Nome</th>
                                 <th>Descricao</th>
                                 <th>Carga horária</th>
+                                <th colspan="2">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,7 +30,16 @@
                                     <td>{{ $treinamento->id }}</td>
                                     <td>{{ $treinamento->nome }}</td>
                                     <td>{{ $treinamento->descricao }}</td>
-                                    <td>{{ $treinamento->carga_horaria}}</td>                                 </td>
+                                    <td>{{ $treinamento->carga_horaria}}</td>
+                                    <td>
+                                        <a href="{{ route('treinamento.show', $treinamento->id) }}" class="btn btn-info btn-sm">Visualizar</a>
+                                        <a href="{{ route('treinamento.edit', $treinamento->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                                        <form action="{{ route('treinamento.destroy', $treinamento->id) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -40,7 +50,7 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{route('welcome')}}" class="btn btn-secondary"><i class="fa fa-home"></i> Voltar</a>
-                    <a href="" class="btn btn-primary">Adicionar Treinamento</a>
+                    <a href="{{route('treinamento.create')}}" class="btn btn-primary">Adicionar Treinamento</a>
                 </div>
 
             </div>

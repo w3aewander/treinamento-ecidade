@@ -20,7 +20,22 @@ Route::get('/', function () {
 //Rotas para o treinamento
 Route::get('/treinamentos', [App\Http\Controllers\TreinamentoController::class, 'index'])
          ->name('treinamentos.index');
+Route::get('/treinamento/novo', [App\Http\Controllers\TreinamentoController::class, 'create'])
+         ->name('treinamento.create');
+Route::post('/treinamento', [App\Http\Controllers\TreinamentoController::class, 'store'])
+         ->name('treinamento.store');
+Route::get('/treinamento/{id}', [App\Http\Controllers\TreinamentoController::class, 'show'])
+         ->name('treinamento.show');
+Route::get('/treinamento/{id}/editar', [App\Http\Controllers\TreinamentoController::class, 'edit'])
+         ->name('treinamento.edit');
+Route::put('/treinamento/{id}', [App\Http\Controllers\TreinamentoController::class, 'update'])
+         ->name('treinamento.update');
+Route::delete('/treinamento/{id}', [App\Http\Controllers\TreinamentoController::class, 'destroy'])
+         ->name('treinamento.destroy');
 
+// Route::resources([
+//     'treinamentos' => App\Http\Controllers\TreinamentoController::class,
+// ]);
 
 Auth::routes();
 
